@@ -14,8 +14,11 @@ Blog title
     <h5 class="card-title">{{ blog.user.username }} </h5>
     <p class="card-text">{{ blog.test }}</p>
 
+    {% if blog.user == user %}
     <a href="{% url 'blog_edit' blog.id %}" class="btn btn-primary">Edit</a>
     <a href="{% url 'blog_delete' blog.id %}" class="btn btn-danger">Delete</a>
+    {% endif %}
+    
   </div>
 </div>
 {% endfor %}

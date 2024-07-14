@@ -37,7 +37,20 @@
             <a class="nav-link" href="#">Pricing</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            
+            <!-- login & logout Button-->
+            {% if user.is_authenticated %}
+            <form method="post" action= "{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+            {% else %}
+            <a href=" {% url 'register' %} " class="btn btn-primary">Register</a>
+            <a href=" {% url 'login' %} " class="btn btn-primary">LogIn</a>
+            {% endif %}
+
+            <!-- End login & logout -->
+            
           </li>
         </ul>
       </div>
